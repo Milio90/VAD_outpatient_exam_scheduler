@@ -39,23 +39,23 @@ jobs:
         
     - name: Build with PyInstaller (Windows & Linux)
       run: |
-        pyinstaller --onefile --windowed --icon icons/icon.ico --name VAD_prescription_scheduler-v1.0.0-${{ matrix.os }} src/patient_prescription_gui.py
+        pyinstaller --onefile --windowed --icon icons/icon.ico --name VAD_prescription_scheduler-v1.0.1-${{ matrix.os }} src/patient_prescription_gui.py
     
     - name: Upload artifacts (Windows & Linux)
       uses: actions/upload-artifact@v4
       with:
         name: VAD_prescription_scheduler-${{ matrix.os }}
         path: |
-          dist/VAD_prescription_scheduler-v1.0.0-${{ matrix.os }}*
+          dist/VAD_prescription_scheduler-v1.0.1-${{ matrix.os }}*
 
     - name: Create Release (Windows & Linux)
       if: github.event_name == 'push' && github.ref == 'refs/heads/main'
       uses: softprops/action-gh-release@v1
       with:
         files: |
-          dist/VAD_prescription_scheduler-v1.0.0-${{ matrix.os }}*
-        tag_name: v1.0.0
-        name: Release v1.0.0
+          dist/VAD_prescription_scheduler-v1.0.1-${{ matrix.os }}*
+        tag_name: v1.0.1
+        name: Release v1.0.1
         draft: false
         prerelease: false
       env:
