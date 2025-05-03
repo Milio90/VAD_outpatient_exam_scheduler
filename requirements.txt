@@ -2,4 +2,3 @@ pandas
 python-docx
 openpyxl
 tkcalendar
-pyinstaller
